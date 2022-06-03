@@ -4,7 +4,7 @@ import logo from "../assets/img/logo.png";
 
 const Logo = () => {
   return (
-    <Link to="/" className="flex font-32 font-medium items-center">
+    <Link to="/" className="flex text-2xl font-medium items-center">
       <img className="mr-3" src={logo} alt="" /> Dear Grocery
     </Link>
   );

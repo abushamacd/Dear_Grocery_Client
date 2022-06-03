@@ -6,7 +6,7 @@ import Home from "./Pages/Home/Home";
 
 function App() {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

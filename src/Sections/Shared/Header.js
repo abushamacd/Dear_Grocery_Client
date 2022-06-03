@@ -11,193 +11,98 @@ import Logo from "../../Components/Logo";
 
 const Header = () => {
   return (
-    <div className="container">
-      <div className=" py-6 flex justify-between items-center ">
-        <Logo />
-        <div className="w-96">
-          <div className="border border-gray-100 p-1 flex rounded-full items-center">
-            <div className="min-w-max px-3">
+    <div>
+      <div class="navbar bg-base-100 flex justify-between p-0">
+        <div class="">
+          <Logo />
+        </div>
+        <div className="hidden lg:block">
+          <div class="border border-primary rounded-full flex items-center">
+            <div class="min-w-max px-3">
               <img src={search} alt="" />
             </div>
             <input
-              className="w-full px-3 pxy-1 focus:outline-none"
-              type="search"
-              placeholder="Search here ..."
+              type="text"
+              placeholder="Search"
+              class="input  focus:outline-none "
             />
             <button
-              className="bg-gray bg-neutral px-6 rounded-full py-2 text-white"
+              class="bg-neutral bs-button-bg px-6 rounded-full py-2 mr-1 text-base-100"
               type="submit"
             >
               Search
             </button>
           </div>
         </div>
-
-        <div className="min-w-max flex items-center">
-          <Link to="/wishlist">
-            <span className="icon-box rounded-full hover:bg-gray-200 inline-block flex items-center justify-center">
-              <img src={heart} alt="" />
-            </span>
-          </Link>
-          <Link className="relative mx-4" to="/cart">
-            <span className="icon-box rounded-full hover:bg-gray-200 inline-block flex items-center justify-center">
-              <img src={shoppingBag} alt="" />
-            </span>{" "}
-            <span className="absolute bg-red-600 px-1 h-4 top-0 right-0 rounded-full text-xs flex justify-center items-center text-white">
-              {3}
-            </span>
-          </Link>
-          <Link to="/my-account" className="flex items-center">
-            <span className="icon-box rounded-full hover:bg-gray-200 inline-block flex items-center justify-center">
-              <img src={user} alt="" />
-            </span>{" "}
-            <span>Account</span>
-          </Link>
-        </div>
-      </div>
-
-      <div className="flex items-center">
-        <div v-click-outside="menuClose" className="w-96 relative">
-          <div className="bg-primary relative z-20 flex rounded-full px-4 py-2 cursor-pointer">
-            <div className="min-w-max">
-              <img src={menuRight} alt="" />
-            </div>
-            <div className="w-full text-center px-6 text-white">
-              All Categories
-            </div>
-            <div className="min-w-max">
-              <img src={chevronDown} alt="" />
+        <div class="flex-none">
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <img src={heart} alt="" />
+                <span class="badge badge-sm indicator-item">8</span>
+              </div>
+            </label>
+            <div
+              tabindex="0"
+              class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+            >
+              <div class="card-body">
+                <span class="font-bold text-lg">8 Items</span>
+                <span class="text-info">Subtotal: $999</span>
+                <div class="card-actions">
+                  <button class="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div
-            // v-bind:className="allCategoryMenu ? 'block visible' : 'hidden invisible'"
-            className="absolute bg-primany z-10 w-full -mt-5 pt-6 pb-4 rounded-b-2xl"
-          >
-            <ul>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <img src={shoppingBag} alt="" />
+                <span class="badge badge-sm indicator-item">8</span>
+              </div>
+            </label>
+            <div
+              tabindex="0"
+              class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+            >
+              <div class="card-body">
+                <span class="font-bold text-lg">8 Items</span>
+                <span class="text-info">Subtotal: $999</span>
+                <div class="card-actions">
+                  <button class="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt=""
+                  src="https://api.lorem.space/image/face?hash=33791"
+                />
+              </div>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            >
               <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Fruits
-                </Link>
+                <a href="/" class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
               </li>
               <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Vegetables
-                </Link>
+                <a href="/">Settings</a>
               </li>
               <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="block text-white py-2 px-4 hover:text-black"
-                  to="/"
-                >
-                  Lorem ispum category
-                </Link>
+                <a href="/">Logout</a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="w-full">
-          <ul className="flex justify-center">
-            <li>
-              <Link className="p-4" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="p-4" to="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="p-4" to="/contact">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link className="p-4" to="/faqs">
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link className="p-4" to="/order-tracking">
-                Order Tracking
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <Link to="/offers" className="min-w-max text-secondary flex">
-          <img src={uPercentage} className="mr-3" alt="" /> Special Offers!
-        </Link>
       </div>
     </div>
   );
