@@ -19,3 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Theme */
+.container {
+  @apply mx-auto;
+  max-width: 1370px;
+}
