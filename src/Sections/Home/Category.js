@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import Groceries from "../../assets/img/carousel-img-1.png";
 import Fish from "../../assets/img/carousel-img-2.png";
@@ -50,43 +50,43 @@ const Category = () => {
           <div style={{ height: "2px" }} class="w-full bg-gray-200"></div>
         </div>
         <Slider {...settings}>
-          <div className="px-2 ">
+          <div className="px-2 lg:pr-4 lg:pl-0 ">
             <div className="text-center p-4 bg-gray-100 rounded">
               <img className="mx-auto" src={Groceries} alt="" />
               <h6 className="text-md font-medium">Groceries</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-gray-100 rounded">
               <img className="mx-auto" src={Fish} alt="" />
               <h6 className="text-md font-medium">Fish</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-accent rounded">
               <img className="mx-auto" src={Meat} alt="" />
               <h6 className="text-md font-medium">Meat</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-gray-100 rounded">
               <img className="mx-auto" src={Vegetables} alt="" />
               <h6 className="text-md font-medium">Vegetables</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-gray-100 rounded">
               <img className="mx-auto" src={Fruits} alt="" />
               <h6 className="text-md font-medium">Fruits</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-gray-100 rounded">
               <img className="mx-auto" src={Ice} alt="" />
               <h6 className="text-md font-medium">Ice Cream</h6>
             </div>
           </div>
-          <div className="px-2">
+          <div className="px-2 lg:pr-4 lg:pl-0">
             <div className="text-center p-4 bg-accent rounded">
               <img className="mx-auto" src={Meat} alt="" />
               <h6 className="text-md font-medium">Meat</h6>
