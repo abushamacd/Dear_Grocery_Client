@@ -1,27 +1,27 @@
-.catagory .slick-track {
+.brand .slick-track {
   display: flex !important;
 }
-.catagory .slick-slider {
+.brand .slick-slider {
   display: flex !important;
   align-items: center !important;
   margin: 0 auto !important;
 }
 
-.catagory .slick-slide {
+.brand .slick-slide {
   padding-right: 10px !important;
 }
 
-.catagory .slick-slide:last-child {
+.brand .slick-slide:last-child {
   padding-right: 0 !important;
 }
-.catagory .slick-slide img {
+.brand .slick-slide img {
   display: block !important;
 }
 
-.catagory .slick-prev {
+.brand .slick-prev {
   width: 50px !important;
   left: 91% !important;
-  top: -55% !important;
+  top: -68% !important;
   position: absolute !important;
   height: 50px !important;
   background: #ddd !important;
@@ -29,10 +29,10 @@
   border-radius: 50% !important;
 }
 
-.catagory .slick-next {
+.brand .slick-next {
   width: 50px !important;
   right: 0 !important;
-  top: -55% !important;
+  top: -68% !important;
   position: absolute !important;
   height: 50px !important;
   background: #ddd !important;
@@ -40,15 +40,15 @@
   border-radius: 50% !important;
 }
 
-.catagory .slick-prev:focus,
-.catagory .slick-prev:hover,
-.catagory .slick-next:hover,
-.catagory .slick-next:focus {
+.brand .slick-prev:focus,
+.brand .slick-prev:hover,
+.brand .slick-next:hover,
+.brand .slick-next:focus {
   color: transparent !important;
   outline: none !important;
   background: #26ae60 !important;
 }
-.catagory .catagory-actions {
+.brand .brand-actions {
   display: flex !important;
   justify-content: space-between !important;
 }
@@ -75,36 +75,36 @@
 
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .catagory .slick-prev {
+  .brand .slick-prev {
     width: 40px !important;
     left: 88% !important;
-    top: -50% !important;
+    top: -70% !important;
     height: 40px !important;
   }
-  .catagory .slick-next {
+  .brand .slick-next {
     width: 40px !important;
     right: 0px !important;
-    top: -50% !important;
+    top: -70% !important;
     height: 40px !important;
   }
 }
 
 /* small mobile :320px. */
 @media (max-width: 767px) {
-  .catagory .slick-prev {
+  .brand .slick-prev {
     width: 30px !important;
     left: 77% !important;
-    top: -49% !important;
+    top: -70% !important;
     position: absolute !important;
     height: 30px !important;
     background: #ddd !important;
     z-index: 1 !important;
     border-radius: 50% !important;
   }
-  .catagory .slick-next {
+  .brand .slick-next {
     width: 30px !important;
     right: 20px !important;
-    top: -49% !important;
+    top: -70% !important;
     position: absolute !important;
     height: 30px !important;
     background: #ddd !important;

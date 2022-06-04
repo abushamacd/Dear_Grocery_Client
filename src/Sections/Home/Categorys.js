@@ -45,7 +45,7 @@ const Category = () => {
   return (
     <div className="my-8 catagory">
       <div>
-        <h3 class="text-2xl lg:text-4xl mb-6">Search by Category</h3>
+        <h3 class="text-2xl lg:text-4xl mb-6 font-bold">Search by Category</h3>
         <div class="flex items-center mb-10">
           <div style={{ height: "3px" }} class="w-32 bg-primary"></div>
           <div style={{ height: "2px" }} class="w-full bg-gray-200"></div>

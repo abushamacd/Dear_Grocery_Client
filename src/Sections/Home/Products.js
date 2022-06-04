@@ -16,8 +16,6 @@ const Products = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -46,8 +44,8 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="product">
-      <h3 class="text-2xl lg:text-4xl mb-6">Deals of the week</h3>
+    <div className="product mb-12">
+      <h3 class="text-2xl lg:text-4xl mb-6 font-bold">Deals of the week</h3>
       <div class="flex items-center mb-10">
         <div style={{ height: "3px" }} class="w-32 bg-primary"></div>
         <div style={{ height: "2px" }} class="w-full bg-gray-200"></div>
