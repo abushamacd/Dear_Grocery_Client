@@ -13,7 +13,7 @@ import FooterInfo from "../../Components/FooterInfo";
 const Footer = () => {
   return (
     <div>
-      <div className="container">
+      <div className="container mt-10">
         <div id="top_footer" className="p-10">
           <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
             <FooterInfo
