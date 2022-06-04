@@ -8,25 +8,25 @@ const SocialLogin = () => {
     <div className="flex justify-evenly">
       <button
         //   onClick={() => signInWithGoogle()}
-        className="btn btn-outline btn-primary w-12"
+        className="btn btn-outline btn-primary w-12 rounded-full"
       >
         <FaGoogle />
       </button>
       <button
         //   onClick={() => signInWithGoogle()}
-        className="btn btn-outline btn-primary w-12"
+        className="btn btn-outline btn-primary w-12 rounded-full"
       >
         <FaGithub />
       </button>
       <button
         //   onClick={() => signInWithGoogle()}
-        className="btn btn-outline btn-primary w-12"
+        className="btn btn-outline btn-primary w-12 rounded-full"
       >
         <BsApple />
       </button>
       <button
         //   onClick={() => signInWithGoogle()}
-        className="btn btn-outline btn-primary w-12"
+        className="btn btn-outline btn-primary w-12 rounded-full"
       >
         <FaFacebookSquare />
       </button>

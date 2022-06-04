@@ -4,7 +4,7 @@ import Logo from "../../Components/Logo";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Sections/User/SocialLogin";
 
-const Login = () => {
+const SignUp = () => {
   // hook form
   const {
     register,
@@ -39,9 +39,33 @@ const Login = () => {
                 <div className="card w-96 bg-base-100 shadow-xl">
                   <div className="card-body">
                     <h2 className="text-center text-2xl font-bold text-primary">
-                      Login
+                      Sign Up
                     </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
+                      {/* Name */}
+                      <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                          <span className="label-text">Name</span>
+                        </label>
+                        <input
+                          {...register("name", {
+                            required: {
+                              value: true,
+                              message: "Name is required",
+                            },
+                          })}
+                          type="text"
+                          placeholder="Type your name"
+                          className="input rounded-full  input-bordered input-primary w-full max-w-xs"
+                        />
+                        <label className="label">
+                          {errors.name?.type === "required" && (
+                            <span className="label-text-alt text-secondary">
+                              {errors.name.message}
+                            </span>
+                          )}
+                        </label>
+                      </div>
                       {/* Email */}
                       <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -60,7 +84,7 @@ const Login = () => {
                           })}
                           type="email"
                           placeholder="Type your email"
-                          className="input rounded-full  input-bordered input-primary w-full max-w-xs"
+                          className="input rounded-full  input-bordered input-primary  w-full max-w-xs"
                         />
                         <label className="label">
                           {errors.email?.type === "required" && (
@@ -109,11 +133,12 @@ const Login = () => {
                         </label>
                       </div>
                       {/* Navigate Signup form */}
+                      {/* Navigate Login */}
                       <p>
                         <small>
-                          New to Electric Cart{" "}
-                          <Link to="/signup" className="text-primary">
-                            Create Account
+                          Already have an account{" "}
+                          <Link to="/login" className="text-primary">
+                            Please Login
                           </Link>{" "}
                         </small>
                       </p>
@@ -137,4 +162,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

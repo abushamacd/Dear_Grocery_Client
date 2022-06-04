@@ -48,7 +48,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
-              className="input  focus:outline-none "
+              className="input rounded-full   focus:outline-none "
             />
             <button
               className="bg-neutral bs-button-bg px-6 rounded-full py-2 mr-1 text-base-100"
