@@ -6,6 +6,7 @@ import Meat from "../../assets/img/carousel-img-3.png";
 import Vegetables from "../../assets/img/carousel-img-4.png";
 import Fruits from "../../assets/img/carousel-img-5.png";
 import Ice from "../../assets/img/carousel-img-6.png";
+import "./Categorys.css";
 
 const Category = () => {
   const settings = {
@@ -42,7 +43,7 @@ const Category = () => {
     ],
   };
   return (
-    <div className="my-8">
+    <div className="my-8 catagory">
       <div>
         <h3 class="text-2xl lg:text-4xl mb-6">Search by Category</h3>
         <div class="flex items-center mb-10">

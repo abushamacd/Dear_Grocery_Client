@@ -1,0 +1,121 @@
+.catagory .slick-track {
+  display: flex !important;
+}
+.catagory .slick-slider {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+}
+
+.catagory .slick-slide {
+  padding-right: 10px !important;
+}
+
+.catagory .slick-slide:last-child {
+  padding-right: 0 !important;
+}
+.catagory .slick-slide img {
+  display: block !important;
+}
+.slick-list {
+  /* margin: 0 15px !important; */
+}
+
+.catagory .slick-prev {
+  width: 50px !important;
+  left: 91% !important;
+  top: -55% !important;
+  position: absolute !important;
+  height: 50px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.catagory .slick-next {
+  width: 50px !important;
+  right: 0 !important;
+  top: -55% !important;
+  position: absolute !important;
+  height: 50px !important;
+  background: #ddd !important;
+  z-index: 1 !important;
+  border-radius: 50% !important;
+}
+
+.catagory .slick-prev:focus,
+.catagory .slick-prev:hover,
+.catagory .slick-next:hover,
+.catagory .slick-next:focus {
+  color: transparent !important;
+  outline: none !important;
+  background: #26ae60 !important;
+}
+.catagory .catagory-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+/* .hidden {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+    } */
+
+/* Large desktop :1920px. */
+@media (min-width: 1280px) {
+}
+
+/* Laptop Device :1366px. */
+@media (min-width: 1200px) and (max-width: 1279px) {
+}
+
+/* Normal desktop :992px. */
+@media (min-width: 1024px) and (max-width: 1200px) {
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .catagory .slick-prev {
+    width: 40px !important;
+    left: 88% !important;
+    top: -50% !important;
+    height: 40px !important;
+  }
+  .catagory .slick-next {
+    width: 40px !important;
+    right: 0px !important;
+    top: -50% !important;
+    height: 40px !important;
+  }
+}
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+  .catagory .slick-prev {
+    width: 30px !important;
+    left: 77% !important;
+    top: -49% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
+  .catagory .slick-next {
+    width: 30px !important;
+    right: 20px !important;
+    top: -49% !important;
+    position: absolute !important;
+    height: 30px !important;
+    background: #ddd !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+  }
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+}
