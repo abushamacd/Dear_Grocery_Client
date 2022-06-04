@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./Products.css";
-import { GrView } from "react-icons/gr";
 import AddToCartModal from "../../Components/AddToCartModal";
 
 const Products = () => {

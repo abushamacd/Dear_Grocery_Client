@@ -9,7 +9,7 @@ const AddToCartModal = ({ productModal }) => {
         <div class="modal-box relative">
           <label
             for="my-modal-3"
-            class="btn btn-sm btn-circle absolute right-2 top-2"
+            class="btn btn-sm btn-circle btn-primary absolute right-2 top-2"
           >
             ✕
           </label>
@@ -25,7 +25,7 @@ const AddToCartModal = ({ productModal }) => {
               <input
                 type="number"
                 min={1}
-                placeholder="Type here"
+                placeholder="Quantity"
                 class="input input-bordered input-primary w-full max-w-xs"
               />
               <div class="card-actions">
