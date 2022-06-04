@@ -76,10 +76,10 @@ const Brands = () => {
 
   return (
     <div className="brand mb-12">
-      <h3 class="text-2xl lg:text-4xl mb-6 font-bold">Popular Brands</h3>
-      <div class="flex items-center mb-10">
-        <div style={{ height: "3px" }} class="w-32 bg-primary"></div>
-        <div style={{ height: "2px" }} class="w-full bg-gray-200"></div>
+      <h3 className="text-2xl lg:text-4xl mb-6 font-bold">Popular Brands</h3>
+      <div className="flex items-center mb-10">
+        <div style={{ height: "3px" }} className="w-32 bg-primary"></div>
+        <div style={{ height: "2px" }} className="w-full bg-gray-200"></div>
       </div>
 
       <Slider {...settings}>

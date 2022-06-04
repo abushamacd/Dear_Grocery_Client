@@ -116,3 +116,21 @@
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 }
+
+/* .product_view {
+  position: absolute;
+  top: 0;
+  padding: 85px 100px;
+  background: #000;
+  text-align: center;
+  opacity: 0.6;
+  color: #fff;
+  border-radius: 7px;
+  height: 55%;
+  width: 100%;
+  display: none;
+}
+
+.product_title:hover .product_view {
+  display: block !important;
+} */
