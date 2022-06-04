@@ -4,6 +4,7 @@ import Categorys from "../../Sections/Home/Categorys";
 import Hero from "../../Sections/Home/Hero";
 import Products from "../../Sections/Home/Products";
 import Promo from "../../Sections/Home/Promo";
+import Collections from "../../Sections/Home/Collections";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Promo />
       <Products />
       <Brands />
+      <Collections />
     </div>
   );
 };
