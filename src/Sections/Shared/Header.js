@@ -119,11 +119,7 @@ const Header = () => {
               <li>
                 <Link to="/" className="justify-between">
                   Profile
-                  <span className="badge">New</span>
                 </Link>
-              </li>
-              <li>
-                <Link to="/">Settings</Link>
               </li>
               <li>
                 <Link to="/login">Log In</Link>
