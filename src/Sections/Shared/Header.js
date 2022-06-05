@@ -7,8 +7,18 @@ import menuRight from "../../assets/img/menu-right.png";
 import chevronDown from "../../assets/img/chevron-down.png";
 import uPercentage from "../../assets/img/u_percentage.png";
 import Logo from "../../Components/Logo";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+  // get user
+  const [user, loading] = useAuthState(auth);
+  // sign out
+  const logout = () => {
+    signOut(auth);
+    // localStorage.removeItem("accessToken");
+  };
   const mainMenu = (
     <>
       <li>
@@ -108,7 +118,7 @@ const Header = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt=""
-                  src="https://api.lorem.space/image/face?hash=33791"
+                  src={user?.photoURL || "https://i.ibb.co/MgsTCcv/avater.jpg"}
                 />
               </div>
             </label>
@@ -121,8 +131,15 @@ const Header = () => {
                   Profile
                 </Link>
               </li>
+
               <li>
-                <Link to="/login">Log In</Link>
+                {user ? (
+                  <button className="" onClick={logout}>
+                    Log out
+                  </button>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
               </li>
             </ul>
           </div>
