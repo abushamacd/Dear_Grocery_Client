@@ -1,7 +1,10 @@
 import React from "react";
 import { FaGoogle, FaGithub, FaFacebookSquare } from "react-icons/fa";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithFacebook,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import Loading from "../Shared/Loading";
 import { useNavigate } from "react-router-dom";
 
@@ -9,24 +12,32 @@ const SocialLogin = () => {
   // Google
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  // Facebook
+  const [signInWithFacebook, fbUser, fbLoading, fbError] =
+    useSignInWithFacebook(auth);
   // navigate
   const navigate = useNavigate();
 
   // Loading
-  if (googleLoading) {
+  if (googleLoading || fbLoading) {
     return <Loading />;
   }
-  console.log(googleUser);
   // Error
   let errorMessage;
-  if (googleError) {
-    errorMessage = <p className="text-red-600"> {googleError?.message} </p>;
+  if (googleError || fbError) {
+    errorMessage = (
+      <p className="text-red-600">
+        {" "}
+        {googleError?.message} {fbError?.message}{" "}
+      </p>
+    );
   }
 
   // user
-  if (googleUser) {
+  if (googleUser || fbUser) {
     navigate("/home");
   }
+  console.log(googleUser, fbUser);
   return (
     <div>
       <div className="flex justify-evenly">
@@ -43,7 +54,7 @@ const SocialLogin = () => {
           <FaGithub />
         </button>
         <button
-          //   onClick={() => signInWithGoogle()}
+          onClick={() => signInWithFacebook()}
           className="btn btn-outline btn-primary w-12 rounded-full"
         >
           <FaFacebookSquare />
