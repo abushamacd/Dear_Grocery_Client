@@ -26,7 +26,7 @@ const AddToCartModal = ({ productModal }) => {
                 type="number"
                 min={1}
                 placeholder="Quantity"
-                class="input input-bordered input-primary input-primary w-full max-w-xs"
+                class="input input-bordered input-primary w-full max-w-xs"
               />
               <div class="card-actions">
                 <button class="btn btn-primary rounded-full px-12">
