@@ -13,7 +13,7 @@ import { signOut } from "firebase/auth";
 
 const Header = () => {
   // get user
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   // sign out
   const logout = () => {
     signOut(auth);
@@ -129,7 +129,7 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/" className="justify-between">
+                <Link to="/dashboard" className="justify-between">
                   Profile
                 </Link>
               </li>
