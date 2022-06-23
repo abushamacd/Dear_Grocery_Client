@@ -91,14 +91,12 @@ const Profile = () => {
   //
   return (
     <div>
-      <h2>Profile</h2>
-
       <div className="hero min-h-fit">
         <div className="hero-content flex-col lg:flex-row md:flex-row">
           <div className="text-center lg:text-left">
             <div className="flex items-center h-screen w-full justify-center">
               <div className="max-w-xs">
-                <div className="bg-white shadow-xl rounded-lg py-3">
+                <div className="bg-white shadow-none rounded-lg py-3">
                   <div className="photo-wrapper p-2">
                     <img
                       className="w-32 h-32 rounded-full mx-auto"
@@ -145,7 +143,7 @@ const Profile = () => {
                       </tbody>
                     </table>
 
-                    <div className="text-center my-3 flex justify-center text-2xl text-secondary">
+                    <div className="text-center my-3 flex justify-center text-2xl text-primary">
                       <a target="blank" href={lUser?.linkedin}>
                         <FaLinkedin />
                       </a>
@@ -158,9 +156,11 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-lg shadow-none bg-base-100">
             <div className="card-body">
-              <h2 className="text-center text-2xl font-bold">Profile Update</h2>
+              <h2 className="text-center text-2xl font-bold text-primary">
+                Profile Update
+              </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* Name */}
                 <div className="form-control w-full max-w-lg">
@@ -173,7 +173,7 @@ const Profile = () => {
                     })}
                     type="text"
                     placeholder="Type your name"
-                    className="input input-bordered w-full max-w-lg"
+                    className="input input-bordered w-full max-w-lg input-primary rounded-full"
                   />
                   <label className="label">
                     {errors.name?.type === "required" && (
@@ -195,7 +195,7 @@ const Profile = () => {
                       })}
                       type="text"
                       placeholder="Addesss here"
-                      className="input input-bordered w-full max-w-xs"
+                      className="input input-bordered w-full max-w-xs  input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.address?.type === "required" && (
@@ -216,7 +216,7 @@ const Profile = () => {
                       })}
                       type="number"
                       placeholder="Type your phone number"
-                      className="input input-bordered w-full max-w-xs ml-2"
+                      className="input input-bordered w-full max-w-xs ml-2  input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.phone?.type === "required" && (
@@ -239,7 +239,7 @@ const Profile = () => {
                       })}
                       type="text"
                       placeholder="Education here"
-                      className="input input-bordered w-full max-w-xs"
+                      className="input input-bordered w-full max-w-xs  input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.education?.type === "required" && (
@@ -261,7 +261,7 @@ const Profile = () => {
                       type="text"
                       max={5}
                       placeholder="Type your occupation"
-                      className="input input-bordered w-full max-w-xs ml-2"
+                      className="input input-bordered w-full max-w-xs ml-2 input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.occupation?.type === "required" && (
@@ -284,7 +284,7 @@ const Profile = () => {
                       })}
                       type="text"
                       placeholder="facebook link here"
-                      className="input input-bordered w-full max-w-xs"
+                      className="input input-bordered w-full max-w-xs  input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.facebook?.type === "required" && (
@@ -305,7 +305,7 @@ const Profile = () => {
                       })}
                       type="text"
                       placeholder="Your linkedin link"
-                      className="input input-bordered w-full max-w-xs ml-2"
+                      className="input input-bordered w-full max-w-xs ml-2 input-primary rounded-full"
                     />
                     <label className="label">
                       {errors.linkedin?.type === "required" && (
@@ -342,7 +342,7 @@ const Profile = () => {
                 </div>
 
                 <input
-                  className="btn w-full max-w-lg mt-4"
+                  className="btn w-full max-w-lg mt-4  btn-primary rounded-full"
                   value="Update Profile"
                   type="submit"
                 />
