@@ -5,6 +5,8 @@ import Footer from "./Sections/Shared/Footer";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/User/Login";
 import SignUp from "./Pages/User/SignUp";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

@@ -42,7 +42,6 @@ const SocialLogin = () => {
   if (googleUser || fbUser || githubUser) {
     navigate("/home");
   }
-  console.log(googleUser, fbUser, githubUser);
   return (
     <div>
       <div className="flex justify-evenly">

@@ -3,29 +3,55 @@ import { useForm } from "react-hook-form";
 import Logo from "../../Components/Logo";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Sections/User/SocialLogin";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../Sections/Shared/Loading";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
+  // Email sign up
+  const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  // Update name
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
   // hook form
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  // Loading
+  if (emailLoading || updating) {
+    return <Loading />;
+  }
+
   // Error
   let errorMessage;
-  //   if (googelError || emailError) {
-  //     errorMessage = (
-  //       <p className="text-secondary">
-  //         {" "}
-  //         {googelError?.message} {emailError?.message}{" "}
-  //       </p>
-  //     );
-  //   }
+  if (emailError || updateError) {
+    errorMessage = (
+      <p className="text-secondary">
+        {" "}
+        {emailError?.message} {updateError?.message}{" "}
+      </p>
+    );
+  }
   // handle submit
-  const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    // navigate("/home");
   };
+  console.log(emailUser?.user.displayName);
+  // Conformation
+  if (emailUser) {
+    toast(`Wow! ${emailUser?.user.displayName}, now you our member`);
+  }
   return (
     <div>
       <section class="h-screen">
@@ -145,7 +171,7 @@ const SignUp = () => {
                       <p className="mb-2">{errorMessage}</p>
                       <input
                         className="btn btn-primary w-full max-w-xs rounded-full"
-                        value="Login"
+                        value="Sign Up"
                         type="submit"
                       />
                     </form>
