@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Logo from "../../Components/Logo";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Sections/User/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../../Sections/Shared/Loading";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   // Email sign in
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
 
+  // use hooks
+  const [token] = useToken(emailUser);
   const navigate = useNavigate();
+
+  // For required auth
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  // user
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   // hook form
   const {
@@ -35,11 +49,6 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password);
   };
 
-  // User
-  if (emailUser) {
-    // navigate(from, { replace: true });
-    navigate("/");
-  }
   return (
     <div>
       <section className="h-screen">

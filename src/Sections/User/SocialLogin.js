@@ -7,7 +7,8 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import Loading from "../Shared/Loading";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../Hooks/useToken";
 
 const SocialLogin = () => {
   // Google
@@ -20,15 +21,22 @@ const SocialLogin = () => {
   const [signInWithGithub, githubUser, githubLoading, githubError] =
     useSignInWithGithub(auth);
 
+  // use hooks
+  const [token] = useToken(googleUser || fbUser || githubUser);
+
   // navigate
   const navigate = useNavigate();
 
+  // For required auth
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   // user
   useEffect(() => {
-    if (googleUser || fbUser || githubUser) {
-      navigate("/home");
+    if (token) {
+      navigate(from, { replace: true });
     }
-  }, [googleUser, fbUser, githubUser, navigate]);
+  }, [token, from, navigate]);
 
   // Loading
   if (googleLoading || fbLoading || githubLoading) {

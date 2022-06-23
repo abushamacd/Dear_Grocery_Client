@@ -25,7 +25,7 @@ const Profile = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch(`https://ancient-taiga-08773.herokuapp.com/user/${email}`, {
+    fetch(`http://localhost:5000/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
@@ -51,7 +51,7 @@ const Profile = () => {
         if (result.success) {
           const img = result.data.url;
           // Create profile data
-          const update = {
+          const updateInfo = {
             name: data.name,
             email: email,
             address: data.address,
@@ -64,12 +64,12 @@ const Profile = () => {
           };
 
           // // Send to DB
-          fetch(`https://ancient-taiga-08773.herokuapp.com/user/${email}`, {
+          fetch(`http://localhost:5000/user/${email}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
             },
-            body: JSON.stringify(update),
+            body: JSON.stringify(updateInfo),
           })
             .then((res) => res.json())
             .then((data) => {

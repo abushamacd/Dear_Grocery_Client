@@ -10,6 +10,7 @@ import {
 import auth from "../../firebase.init";
 import Loading from "../../Sections/Shared/Loading";
 import { toast } from "react-toastify";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
   // Email sign up
@@ -19,6 +20,8 @@ const SignUp = () => {
   // Update name
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+  // use hooks
+  const [token] = useToken(emailUser);
   const navigate = useNavigate();
 
   // hook form
@@ -51,12 +54,11 @@ const SignUp = () => {
 
   // Conformation
   if (emailUser) {
-    toast(`Wow! ${emailUser?.user.displayName}, now you our member`);
+    toast(`Wow! ${emailUser?.user.displayName}, now you are our member`);
   }
 
-  // User
-  if (emailUser) {
-    // navigate(from, { replace: true });
+  // user
+  if (token) {
     navigate("/");
   }
   return (
