@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequiredAuth from "./Hooks/RequiredAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Profile from "./Pages/Dashboard/Profile";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
               </RequiredAuth>
             }
           >
-            {/* <Route index element={<Profile></Profile>}></Route> */}
+            <Route index element={<Profile></Profile>}></Route>
             {/* <Route path="orders" element={<Orders></Orders>}></Route>
           <Route path="addreview" element={<AddReview></AddReview>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>

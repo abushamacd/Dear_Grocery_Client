@@ -4,16 +4,16 @@ const AddToCartModal = ({ productModal }) => {
   const { name, img, quantity, price, description } = productModal;
   return (
     <div>
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
+      <input type="checkbox" id="addToCartModal" className="modal-toggle" />
+      <div className="modal ">
+        <div className="modal-box relative ">
           <label
-            htmlFor="my-modal-3"
+            htmlFor="addToCartModal"
             className="btn btn-sm btn-circle btn-primary absolute right-2 top-2"
           >
             ✕
           </label>
-          <div className="flex">
+          <div className="lg:flex items-center ">
             <figure>
               <img className="" src={img} alt="Movie" />
             </figure>
@@ -26,10 +26,10 @@ const AddToCartModal = ({ productModal }) => {
                 type="number"
                 min={1}
                 placeholder="Quantity"
-                className="input input-bordered input-primary w-full max-w-xs"
+                className="input input-bordered input-primary rounded-full w-full max-w-xs"
               />
               <div className="card-actions">
-                <button className="btn btn-primary rounded-full px-12">
+                <button className="btn btn-primary rounded-full px-12 w-full">
                   Add To Cart
                 </button>
               </div>

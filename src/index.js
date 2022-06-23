@@ -6,14 +6,20 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+// Create a client
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </QueryClientProvider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
