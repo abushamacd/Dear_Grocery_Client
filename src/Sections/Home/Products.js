@@ -74,8 +74,8 @@ const Products = () => {
                 <div className="card-actions">
                   <label
                     onClick={() => setProductModal(product)}
-                    for="my-modal-3"
-                    class=" modal-button btn btn-accent rounded-full px-12"
+                    htmlFor="my-modal-3"
+                    className=" modal-button btn btn-accent rounded-full px-12"
                   >
                     Add to Cart
                   </label>

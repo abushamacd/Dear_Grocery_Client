@@ -1,45 +1,59 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Logo from "../../Components/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Sections/User/SocialLogin";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../Sections/Shared/Loading";
 
 const Login = () => {
+  // Email sign in
+  const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
+    useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+
   // hook form
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   // Error
   let errorMessage;
-  //   if (googelError || emailError) {
-  //     errorMessage = (
-  //       <p className="text-secondary">
-  //         {" "}
-  //         {googelError?.message} {emailError?.message}{" "}
-  //       </p>
-  //     );
-  //   }
+  if (emailError) {
+    errorMessage = <p className="text-secondary"> {emailError?.message} </p>;
+  }
+  // Loading
+  if (emailLoading) {
+    return <Loading />;
+  }
   // handle submit
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
-    console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
   };
+
+  // User
+  if (emailUser) {
+    // navigate(from, { replace: true });
+    navigate("/");
+  }
   return (
     <div>
-      <section class="h-screen">
-        <div class="px-6 h-full text-gray-800">
-          <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-            <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 lg:mb-12 md:mb-0 flex justify-center">
+      <section className="h-screen">
+        <div className="px-6 h-full text-gray-800">
+          <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 lg:mb-12 md:mb-0 flex justify-center">
               <Logo />
             </div>
-            <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
               <div className="flex lg:h-screen justify-center items-center">
                 <div className="card w-96 bg-base-100 shadow-xl">
                   <div className="card-body">
                     <h2 className="text-center text-2xl font-bold text-primary">
-                      Login
+                      Sign In
                     </h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                       {/* Email */}
@@ -120,7 +134,7 @@ const Login = () => {
                       <p className="mb-2">{errorMessage}</p>
                       <input
                         className="btn btn-primary w-full max-w-xs rounded-full"
-                        value="Login"
+                        value="Sign In"
                         type="submit"
                       />
                     </form>

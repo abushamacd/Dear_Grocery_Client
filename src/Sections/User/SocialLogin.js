@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaGoogle, FaGithub, FaFacebookSquare } from "react-icons/fa";
 import auth from "../../firebase.init";
 import {
@@ -23,6 +23,13 @@ const SocialLogin = () => {
   // navigate
   const navigate = useNavigate();
 
+  // user
+  useEffect(() => {
+    if (googleUser || fbUser || githubUser) {
+      navigate("/home");
+    }
+  }, [googleUser, fbUser, githubUser, navigate]);
+
   // Loading
   if (googleLoading || fbLoading || githubLoading) {
     return <Loading />;
@@ -36,11 +43,6 @@ const SocialLogin = () => {
         {googleError?.message} {fbError?.message} {githubError?.message}{" "}
       </p>
     );
-  }
-
-  // user
-  if (googleUser || fbUser || githubUser) {
-    navigate("/home");
   }
   return (
     <div>

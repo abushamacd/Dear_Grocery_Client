@@ -19,6 +19,7 @@ const Header = () => {
     signOut(auth);
     // localStorage.removeItem("accessToken");
   };
+
   const mainMenu = (
     <>
       <li>
@@ -117,6 +118,7 @@ const Header = () => {
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
+                  referrerPolicy="no-referrer"
                   alt=""
                   src={user?.photoURL || "https://i.ibb.co/MgsTCcv/avater.jpg"}
                 />

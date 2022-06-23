@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Logo from "../../Components/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Sections/User/SocialLogin";
 import {
   useCreateUserWithEmailAndPassword,
@@ -18,6 +18,8 @@ const SignUp = () => {
 
   // Update name
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const navigate = useNavigate();
 
   // hook form
   const {
@@ -45,22 +47,27 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    // navigate("/home");
   };
-  console.log(emailUser?.user.displayName);
+
   // Conformation
   if (emailUser) {
     toast(`Wow! ${emailUser?.user.displayName}, now you our member`);
   }
+
+  // User
+  if (emailUser) {
+    // navigate(from, { replace: true });
+    navigate("/");
+  }
   return (
     <div>
-      <section class="h-screen">
-        <div class="px-6 h-full text-gray-800">
-          <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-            <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 lg:mb-12 md:mb-0 flex justify-center">
+      <section className="h-screen">
+        <div className="px-6 h-full text-gray-800">
+          <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 lg:mb-12 md:mb-0 flex justify-center">
               <Logo />
             </div>
-            <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
               <div className="flex lg:h-screen justify-center items-center">
                 <div className="card w-96 bg-base-100 shadow-xl">
                   <div className="card-body">
