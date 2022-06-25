@@ -14,6 +14,7 @@ import AllUser from "./Pages/Dashboard/AllUser";
 import RequiredAdmin from "./Hooks/RequiredAdmin";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import ManageProduct from "./Pages/Dashboard/ManageProduct";
+import Shop from "./Pages/Shop/Shop";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/shop" element={<Shop />} />
           <Route
             path="dashboard"
             element={

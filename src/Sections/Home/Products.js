@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./Products.css";
 import AddToCartModal from "../../Components/AddToCartModal";
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 
 const Products = () => {
   var settings = {
@@ -36,15 +38,21 @@ const Products = () => {
       },
     ],
   };
-
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/product")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
   const [productModal, setProductModal] = useState(null);
+
+  // Load product
+  const { data: products, isLoading } = useQuery("products", () =>
+    fetch(`http://localhost:5000/product`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")} `,
+      },
+    }).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="product mb-12">
