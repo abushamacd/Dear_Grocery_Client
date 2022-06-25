@@ -63,7 +63,7 @@ const AddProduct = () => {
   };
   return (
     <div>
-      <h2 className="text-3xl text-center mb-3">Add Product</h2>
+      <h2 className="text-3xl text-center mb-3 text-primary">Add Product</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-evenly">
           {/* Name */}

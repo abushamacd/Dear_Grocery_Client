@@ -13,6 +13,7 @@ import Profile from "./Pages/Dashboard/Profile";
 import AllUser from "./Pages/Dashboard/AllUser";
 import RequiredAdmin from "./Hooks/RequiredAdmin";
 import AddProduct from "./Pages/Dashboard/AddProduct";
+import ManageProduct from "./Pages/Dashboard/ManageProduct";
 
 function App() {
   return (
@@ -60,14 +61,14 @@ function App() {
                 </RequiredAdmin>
               }
             ></Route>
-            {/* <Route
-            path="manageproduct"
-            element={
-              <RequiredAdmin>
-                <ManageProduct></ManageProduct>
-              </RequiredAdmin>
-            }
-          ></Route> */}
+            <Route
+              path="manageproduct"
+              element={
+                <RequiredAdmin>
+                  <ManageProduct></ManageProduct>
+                </RequiredAdmin>
+              }
+            ></Route>
           </Route>
         </Routes>
       </div>
