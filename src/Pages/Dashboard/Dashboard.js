@@ -35,7 +35,7 @@ const Dashboard = () => {
           {/* {admin && ( */}
           <>
             <li className="border-b-2 border-primary">
-              <Link to={"/dashboard/alluser"}>Make Admin</Link>
+              <Link to={"/dashboard/alluser"}>All Users</Link>
             </li>
             <li className="border-b-2 border-primary">
               <Link to={"/dashboard/allorder"}>Manage All Orders</Link>

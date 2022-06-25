@@ -30,13 +30,13 @@ const UserRow = ({ user, index, refetch }) => {
       <td>{user.email}</td>
       <td>
         {role !== "admin" && (
-          <button onClick={makeAdmin} className="btn btn-xs">
+          <button onClick={makeAdmin} className="btn btn-xs btn-primary">
             Make Admin
           </button>
         )}
       </td>
       <td>
-        <button className="btn btn-xs">Remove</button>
+        <button className="btn btn-xs btn-secondary">Remove</button>
       </td>
     </tr>
   );
