@@ -118,6 +118,7 @@ const Header = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt=""
+                  referrerPolicy="no-referrer"
                   src={user?.photoURL || "https://i.ibb.co/MgsTCcv/avater.jpg"}
                 />
               </div>
