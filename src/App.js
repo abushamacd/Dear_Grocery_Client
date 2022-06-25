@@ -11,6 +11,8 @@ import RequiredAuth from "./Hooks/RequiredAuth";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Profile from "./Pages/Dashboard/Profile";
 import AllUser from "./Pages/Dashboard/AllUser";
+import RequiredAdmin from "./Hooks/RequiredAdmin";
+import AddProduct from "./Pages/Dashboard/AddProduct";
 
 function App() {
   return (
@@ -37,9 +39,9 @@ function App() {
             <Route
               path="alluser"
               element={
-                // <RequiredAdmin>
-                <AllUser></AllUser>
-                // </RequiredAdmin>
+                <RequiredAdmin>
+                  <AllUser></AllUser>
+                </RequiredAdmin>
               }
             ></Route>
             {/* <Route
@@ -50,14 +52,14 @@ function App() {
               </RequiredAdmin>
             }
           ></Route> */}
-            {/* <Route
-            path="addproduct"
-            element={
-              <RequiredAdmin>
-                <AddProduct></AddProduct>
-              </RequiredAdmin>
-            }
-          ></Route> */}
+            <Route
+              path="addproduct"
+              element={
+                <RequiredAdmin>
+                  <AddProduct></AddProduct>
+                </RequiredAdmin>
+              }
+            ></Route>
             {/* <Route
             path="manageproduct"
             element={
