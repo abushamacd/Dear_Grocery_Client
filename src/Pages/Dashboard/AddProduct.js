@@ -41,7 +41,7 @@ const AddProduct = () => {
             img: img,
           };
           // Send to DB
-          fetch("http://localhost:5000/product", {
+          fetch("https://true-zed-03420.herokuapp.com/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

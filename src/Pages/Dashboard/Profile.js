@@ -25,7 +25,7 @@ const Profile = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch(`http://localhost:5000/user/${email}`, {
+    fetch(`https://true-zed-03420.herokuapp.com/user/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
@@ -64,7 +64,7 @@ const Profile = () => {
           };
 
           // // Send to DB
-          fetch(`http://localhost:5000/user/${email}`, {
+          fetch(`https://true-zed-03420.herokuapp.com/user/${email}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

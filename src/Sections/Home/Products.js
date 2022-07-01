@@ -42,7 +42,7 @@ const Products = () => {
 
   // Load product
   const { data: products, isLoading } = useQuery("products", () =>
-    fetch(`http://localhost:5000/product`, {
+    fetch(`https://true-zed-03420.herokuapp.com/product`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
