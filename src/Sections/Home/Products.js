@@ -68,14 +68,12 @@ const Products = () => {
               key={product._id}
               className="card lg:max-w-lg bg-base-100 border"
             >
-              <figure className="px-10 pt-10 product_img">
-                <img src={product.img} alt="Shoes" className="rounded-xl " />
-              </figure>
-              {/* <div className="product_view">
-                <GrView className="bg-[#fff] text-5xl text-primary" />
-              </div> */}
+              {product.tag !== " " && <span className="badge bg-secondary border-secondary text-black capitalize">{product.tag}</span>}
+              <div className="block relative h-72 rounded overflow-hidden">
+                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={product.img} />
+              </div>
               <div className="card-body items-center text-center">
-                <h2 className="text-sm font-medium product_title">
+                <h2 className="text-sm font-medium product_title h-10">
                   {product.name}
                 </h2>
                 <p className="text-sm font-medium">$ {product.price}</p>
@@ -83,7 +81,7 @@ const Products = () => {
                   <label
                     onClick={() => setProductModal(product)}
                     htmlFor="addToCartModal"
-                    className=" modal-button btn btn-accent rounded-full px-12"
+                    className="modal-button btn btn-accent rounded-full px-12"
                   >
                     Add to Cart
                   </label>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddToCartModal from "../../Components/AddToCartModal";
 
 const SingleItem = ({ product }) => {
-  const { _id, name, img, minimum, quantity, description, price } = product;
+  const { _id, name, img, brand, desc, price } = product;
   const [productModal, setProductModal] = useState(null);
 
   return (
@@ -14,28 +14,18 @@ const SingleItem = ({ product }) => {
         <h2 className="card-title text-primary hover:text-secondary transition duration-0 hover:duration-200">
           {name}
         </h2>
-        <p title={description}>
-          {description.length > 100
-            ? description.slice(0, 100) + "..."
-            : description}
+        <p title={desc}>
+          {desc.length > 100
+            ? desc.slice(0, 100) + "..."
+            : desc}
         </p>
-        <p className="text-xl">
-          Per Item Price: $ <span className="text-secondary">{price}</span>{" "}
-        </p>
+
         <div className="flex">
-          <p>
-            Minimum Order: <span className="text-secondary">{minimum}</span>{" "}
+          <p className="text-sm">
+            Price: $ <span className="text-secondary">{price}</span>{" "}
           </p>
-          <p>
-            {parseInt(quantity) > 0 ? (
-              <span>
-                {" "}
-                Avaialable Itmes:{" "}
-                <span className="text-secondary">{quantity}</span>{" "}
-              </span>
-            ) : (
-              <span className="text-error"> Sold Out </span>
-            )}
+          <p className="text-sm">
+            Brand:<span className="text-secondary"> {brand}</span>{" "}
           </p>
         </div>
         <div className="card-actions">
