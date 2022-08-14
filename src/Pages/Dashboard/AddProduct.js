@@ -18,6 +18,7 @@ const AddProduct = () => {
 
   // handle submit
   const onSubmit = async (data) => {
+    console.log(data);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -33,12 +34,14 @@ const AddProduct = () => {
           // Create Product
           const product = {
             name: data.name,
-            email: user?.email,
             price: data.price,
-            description: data.description,
-            minimum: data.minimum,
-            quantity: data.quantity,
+            desc: data.description,
             img: img,
+            capacity: data.capacity,
+            stockQty: data.quantity,
+            brand: data.brand,
+            category: data.category,
+            tag: data.tag,
           };
           // Send to DB
           fetch("https://true-zed-03420.herokuapp.com/product", {
@@ -79,7 +82,7 @@ const AddProduct = () => {
                 },
               })}
               type="text"
-              placeholder="Type your name"
+              placeholder="Type product name"
               className="input input-bordered input-primary rounded-full w-full max-w-xs"
             />
             <label className="label">
@@ -100,7 +103,7 @@ const AddProduct = () => {
               {...register("price", {
                 required: {
                   value: true,
-                  message: "price is required",
+                  message: "Price is required",
                 },
               })}
               type="number"
@@ -118,26 +121,26 @@ const AddProduct = () => {
         </div>
 
         <div className="flex justify-evenly">
-          {/* Minimum */}
+          {/* Capacity */}
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Minimum Order</span>
+              <span className="label-text">Items Capacity</span>
             </label>
             <input
-              {...register("minimum", {
+              {...register("capacity", {
                 required: {
                   value: true,
-                  message: "minimum is required",
+                  message: "Capacity is required",
                 },
               })}
-              type="number"
-              placeholder="Type your minimum "
+              type="text"
+              placeholder="Items Capacity (like 1kg/250gm) "
               className="input input-bordered input-primary rounded-full w-full max-w-xs"
             />
             <label className="label">
-              {errors.minimum?.type === "required" && (
+              {errors.capacity?.type === "required" && (
                 <span className="label-text-alt text-red-600">
-                  {errors.minimum.message}
+                  {errors.capacity.message}
                 </span>
               )}
             </label>
@@ -145,7 +148,7 @@ const AddProduct = () => {
           {/* quantity */}
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Available quantity</span>
+              <span className="label-text">Stock quantity</span>
             </label>
             <input
               {...register("quantity", {
@@ -155,13 +158,71 @@ const AddProduct = () => {
                 },
               })}
               type="number"
-              placeholder="Type your quantity "
+              placeholder="Type your stock quantity"
               className="input input-bordered input-primary rounded-full w-full max-w-xs"
             />
             <label className="label">
               {errors.quantity?.type === "required" && (
                 <span className="label-text-alt text-red-600">
                   {errors.quantity.message}
+                </span>
+              )}
+            </label>
+          </div>
+        </div>
+
+        <div className="flex justify-evenly">
+          {/* Brand */}
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Items Brand Name</span>
+            </label>
+            <input
+              {...register("brand", {
+                required: {
+                  value: true,
+                  message: "Brand is required",
+                },
+              })}
+              type="text"
+              placeholder="Product brand name"
+              className="input input-bordered input-primary rounded-full w-full max-w-xs"
+            />
+            <label className="label">
+              {errors.brand?.type === "required" && (
+                <span className="label-text-alt text-red-600">
+                  {errors.brand.message}
+                </span>
+              )}
+            </label>
+          </div>
+          {/* Category */}
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Items Category</span>
+            </label>
+            <select
+              {...register("category", {
+                required: {
+                  value: true,
+                  message: "Category is required",
+                },
+              })}
+              type="text"
+              placeholder="Items Category"
+              className="input input-bordered input-primary rounded-full w-full max-w-xs"
+            >
+              <option value=" "></option>
+              <option value="dry food">Dry Food</option>
+              <option value="vagetable">Vegetable</option>
+              <option value="fruits">Fruits</option>
+              <option value="oil">Oil</option>
+              <option value="spice">Spices</option>
+            </select>
+            <label className="label">
+              {errors.category?.type === "required" && (
+                <span className="label-text-alt text-red-600">
+                  {errors.category.message}
                 </span>
               )}
             </label>
@@ -193,6 +254,36 @@ const AddProduct = () => {
               )}
             </label>
           </div>
+          {/* Product Tag */}
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Product Tag</span>
+            </label>
+            <select
+              {...register("tag", {
+                required: {
+                  value: true,
+                  message: "Product Tag is required",
+                },
+              })}
+              type="text"
+              placeholder="Product Tag here"
+              className="input input-bordered input-primary rounded-full w-full max-w-xs"
+            >
+              <option value=" "></option>
+              <option value="new arrival">New Arrivel</option>
+              <option value="best selling">Best Selling</option>
+            </select>
+            <label className="label">
+              {errors.tag?.type === "required" && (
+                <span className="label-text-alt text-red-600">
+                  {errors.tag.message}
+                </span>
+              )}
+            </label>
+          </div>
+        </div>
+        <div className="flex justify-center">
           {/* Photo */}
           <div className="form-control w-full max-w-xs">
             <label className="label">
