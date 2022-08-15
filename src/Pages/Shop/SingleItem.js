@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddToCartModal from "../../Components/AddToCartModal";
 
-const SingleItem = ({ product }) => {
+const SingleItem = ({ product, handleAddToCart }) => {
   const { _id, name, img, brand, desc, price } = product;
   const [productModal, setProductModal] = useState(null);
 
@@ -34,7 +34,7 @@ const SingleItem = ({ product }) => {
             htmlFor="addToCartModal"
             className="w-full modal-button btn btn-primary rounded-full px-12"
           >
-            Add to Cart
+            Show Details
           </label>
         </div>
       </div>
@@ -42,6 +42,7 @@ const SingleItem = ({ product }) => {
       {productModal && (
         <AddToCartModal
           productModal={productModal}
+          handleAddToCart={handleAddToCart}
           // refetch={refetch}
           setProductModal={setProductModal}
         ></AddToCartModal>

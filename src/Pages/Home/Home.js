@@ -6,13 +6,13 @@ import Products from "../../Sections/Home/Products";
 import Promo from "../../Sections/Home/Promo";
 import Collections from "../../Sections/Home/Collections";
 
-const Home = () => {
+const Home = ({ handleAddToCart }) => {
   return (
     <div>
       <Hero />
       <Categorys />
       <Promo />
-      <Products />
+      <Products handleAddToCart={handleAddToCart} />
       <Brands />
       <Collections />
     </div>

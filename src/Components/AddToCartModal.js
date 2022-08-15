@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AddToCartModal = ({ productModal }) => {
-  console.log(productModal)
+const AddToCartModal = ({ productModal, handleAddToCart, setProductModal }) => {
   const { name, img, brand, capacity, category, price, desc, tag } = productModal;
   return (
     <div>
@@ -10,6 +9,7 @@ const AddToCartModal = ({ productModal }) => {
       <div className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <label
+            onClick={() => setProductModal(null)}
             htmlFor="addToCartModal"
             className="btn btn-sm btn-circle btn-primary absolute right-2 top-2"
           >
@@ -25,7 +25,7 @@ const AddToCartModal = ({ productModal }) => {
                   <p className="leading-relaxed"> {desc} </p>
                   <div className="flex border-t pt-2">
                     <span className="title-font font-medium text-2xl text-gray-900">$ {price}<span className="text-gray-500 text-sm"> / {capacity}</span> </span>
-                    <button className="flex ml-auto text-white btn btn-primary border-0 py-2 focus:outline-none  rounded-full px-12 ">Add to Cart</button>
+                    <button onClick={() => { handleAddToCart(productModal); setProductModal(null) }} className="flex ml-auto text-white btn btn-primary border-0 py-2 focus:outline-none  rounded-full px-12 ">Add to Cart</button>
                   </div>
                 </div>
               </div>

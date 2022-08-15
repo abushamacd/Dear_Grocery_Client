@@ -5,7 +5,7 @@ import AddToCartModal from "../../Components/AddToCartModal";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
 
-const Products = () => {
+const Products = ({ handleAddToCart }) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -83,7 +83,7 @@ const Products = () => {
                     htmlFor="addToCartModal"
                     className="modal-button btn btn-accent rounded-full px-12"
                   >
-                    Add to Cart
+                    Show Details
                   </label>
                 </div>
               </div>
@@ -95,6 +95,7 @@ const Products = () => {
       {productModal && (
         <AddToCartModal
           productModal={productModal}
+          handleAddToCart={handleAddToCart}
           // refetch={refetch}
           setProductModal={setProductModal}
         ></AddToCartModal>

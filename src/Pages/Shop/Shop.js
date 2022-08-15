@@ -3,7 +3,7 @@ import SingleItem from "./SingleItem";
 import { useQuery } from "react-query";
 import Loading from "../../Sections/Shared/Loading";
 
-const Shop = () => {
+const Shop = ({ handleAddToCart }) => {
   // Load product
   const { data: products, isLoading } = useQuery("products", () =>
     fetch(`https://true-zed-03420.herokuapp.com/product`, {
@@ -24,7 +24,7 @@ const Shop = () => {
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-16">
         {products?.map((product) => (
-          <SingleItem key={product._id} product={product} />
+          <SingleItem key={product._id} product={product} handleAddToCart={handleAddToCart} />
         ))}
       </div>
     </div>

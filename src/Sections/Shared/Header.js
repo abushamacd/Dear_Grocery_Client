@@ -10,8 +10,15 @@ import Logo from "../../Components/Logo";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import {
+  AiOutlinePlusCircle,
+  AiOutlineMinusCircle,
+  AiOutlineCheckCircle,
+  AiOutlineClear,
+} from "react-icons/ai";
+import { HiOutlineMenuAlt1, HiOutlineUserCircle, HiOutlineShoppingCart } from 'react-icons/hi';
 
-const Header = () => {
+const Header = ({ cart, handleAddToCart, deleteShoppingCart, handleRemoveFromCart }) => {
   // get user
   const [user, loading] = useAuthState(auth);
   // sign out
@@ -19,6 +26,12 @@ const Header = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
+  let subtotal = 0;
+  for (const product of cart) {
+    subtotal = subtotal + product.price * product.quantity;
+  }
+
+
   const mainMenu = (
     <>
       <li>
@@ -69,43 +82,52 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle">
               <div className="indicator">
-                <img src={heart} alt="" />
-                <span className="badge badge-sm indicator-item">8</span>
-              </div>
-            </label>
-            <div
-              tabIndex="0"
-              className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
-            >
-              <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex="0" className="btn btn-ghost btn-circle">
-              <div className="indicator">
                 <img src={shoppingBag} alt="" />
-                <span className="badge badge-sm indicator-item">8</span>
+                <span className="badge badge-sm indicator-item"> {cart.length} </span>
               </div>
             </label>
             <div
               tabIndex="0"
-              className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+              className="mt-3 card card-compact dropdown-content w-72 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="font-bold text-lg">Your Cart</span>
+                <ol className="list-decimal px-4 mt-2">
+                  {cart.length === 0 && <p className="my-4 font-semibold">Empty Cart</p>}
+                  {
+                    cart.map(item => {
+                      return <li key={item._id} className="my-2">
+                        <div className="flex">
+                          <div className="text-neutral w-2/3">
+                            {item.name}
+                          </div>
+                          <div className="flex justify-center items-center w-1/3">
+                            <AiOutlineMinusCircle
+                              onClick={() => handleRemoveFromCart(item)}
+                              className="text-primary hover:text-neutral" />
+                            <span className="mx-2"> {item.quantity} </span>
+                            <AiOutlinePlusCircle
+                              onClick={() => handleAddToCart(item)}
+                              className="text-primary hover:text-neutral" />
+                          </div>
+                        </div>
+                      </li>
+                    })
+                  }
+                </ol>
+                <span className="text-primary">Subtotal: $ {subtotal} </span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+                  <div className="lg:flex mt-2 ">
+                    <Link to={'/checkout'}><button className="btn btn-sm btn-primary mr-1 capitalize">
+                      <AiOutlineCheckCircle className="mr-1" /> Checkout
+                    </button></Link>
+                    <button
+                      onClick={deleteShoppingCart}
+                      className="btn btn-sm btn-primary ml-1 capitalize"
+                    >
+                      <AiOutlineClear className="mr-1" /> Clear Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
