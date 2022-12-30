@@ -9,7 +9,7 @@ const ProductDeleteModal = ({
   const { _id, name } = deletingProduct;
   // Delete product from db
   const handleDelete = () => {
-    fetch(`https://true-zed-03420.herokuapp.com/product/${_id}`, {
+    fetch(`https://dear-grocery-server.onrender.com/product/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

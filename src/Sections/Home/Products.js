@@ -42,7 +42,7 @@ const Products = ({ handleAddToCart }) => {
 
   // Load product
   const { data: products, isLoading } = useQuery("products", () =>
-    fetch(`https://true-zed-03420.herokuapp.com/product`, {
+    fetch(`https://dear-grocery-server.onrender.com/product`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
@@ -68,9 +68,17 @@ const Products = ({ handleAddToCart }) => {
               key={product._id}
               className="card lg:max-w-lg bg-base-100 border"
             >
-              {product.tag !== " " && <span className="badge bg-secondary border-secondary text-black capitalize">{product.tag}</span>}
+              {product.tag !== " " && (
+                <span className="badge bg-secondary border-secondary text-black capitalize">
+                  {product.tag}
+                </span>
+              )}
               <div className="block relative h-72 rounded overflow-hidden">
-                <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={product.img} />
+                <img
+                  alt="ecommerce"
+                  className="object-cover object-center w-full h-full block"
+                  src={product.img}
+                />
               </div>
               <div className="card-body items-center text-center">
                 <h2 className="text-sm font-medium product_title h-10">

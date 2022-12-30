@@ -6,7 +6,7 @@ import Loading from "../../Sections/Shared/Loading";
 const Shop = ({ handleAddToCart }) => {
   // Load product
   const { data: products, isLoading } = useQuery("products", () =>
-    fetch(`https://true-zed-03420.herokuapp.com/product`, {
+    fetch(`https://dear-grocery-server.onrender.com/product`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
@@ -24,7 +24,11 @@ const Shop = ({ handleAddToCart }) => {
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mt-16">
         {products?.map((product) => (
-          <SingleItem key={product._id} product={product} handleAddToCart={handleAddToCart} />
+          <SingleItem
+            key={product._id}
+            product={product}
+            handleAddToCart={handleAddToCart}
+          />
         ))}
       </div>
     </div>

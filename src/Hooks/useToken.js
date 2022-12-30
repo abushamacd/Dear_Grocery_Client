@@ -8,7 +8,7 @@ const useToken = (user) => {
     const img = user?.user?.photoURL;
     const currentUser = { email: email, name: name, img: img };
     if (email) {
-      fetch(`https://true-zed-03420.herokuapp.com/user/${email}`, {
+      fetch(`https://dear-grocery-server.onrender.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

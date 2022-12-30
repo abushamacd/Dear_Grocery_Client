@@ -44,7 +44,7 @@ const AddProduct = () => {
             tag: data.tag,
           };
           // Send to DB
-          fetch("https://true-zed-03420.herokuapp.com/product", {
+          fetch("https://dear-grocery-server.onrender.com/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

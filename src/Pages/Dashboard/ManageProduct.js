@@ -12,7 +12,7 @@ const ManageProduct = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch(`https://true-zed-03420.herokuapp.com/product`, {
+    fetch(`https://dear-grocery-server.onrender.com/product`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,

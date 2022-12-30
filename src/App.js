@@ -17,7 +17,7 @@ import ManageProduct from "./Pages/Dashboard/ManageProduct";
 import Shop from "./Pages/Shop/Shop";
 import { useState } from "react";
 import { addToDb, getStoredCart, removeFromDb } from "./Hooks/cart";
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 import { useEffect } from "react";
 import Loading from "./Sections/Shared/Loading";
 
@@ -25,7 +25,7 @@ function App() {
   const [cart, setCart] = useState([]);
   // Load product
   const { data: products, isLoading } = useQuery("products", () =>
-    fetch(`https://true-zed-03420.herokuapp.com/product`, {
+    fetch(`https://dear-grocery-server.onrender.com/product`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")} `,
@@ -55,14 +55,16 @@ function App() {
   // Step 6
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
-    const exists = cart.find(product => product._id === selectedProduct._id);
+    const exists = cart.find((product) => product._id === selectedProduct._id);
     if (!exists) {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter(product => product._id !== selectedProduct._id);
+      const rest = cart.filter(
+        (product) => product._id !== selectedProduct._id
+      );
       exists.quantity = exists.quantity + 1;
-      newCart = [...rest, exists]
+      newCart = [...rest, exists];
     }
     setCart(newCart);
     addToDb(selectedProduct._id);
@@ -71,9 +73,11 @@ function App() {
   // Step 6
   const handleRemoveFromCart = (selectedProduct) => {
     let newCart = [];
-    const exists = cart.find(product => product._id === selectedProduct._id)
+    const exists = cart.find((product) => product._id === selectedProduct._id);
     if (exists) {
-      const rest = cart.filter(product => product._id !== selectedProduct._id);
+      const rest = cart.filter(
+        (product) => product._id !== selectedProduct._id
+      );
       exists.quantity = exists.quantity - 1;
       if (exists.quantity <= 0) {
         newCart = [...rest];
@@ -86,19 +90,33 @@ function App() {
   };
 
   const deleteShoppingCart = () => {
-    localStorage.removeItem('shopping-cart');
-    setCart([])
-  }
+    localStorage.removeItem("shopping-cart");
+    setCart([]);
+  };
   return (
     <div>
       <div className="max-w-7xl mx-auto">
-        <Header cart={cart} handleAddToCart={handleAddToCart} deleteShoppingCart={deleteShoppingCart} handleRemoveFromCart={handleRemoveFromCart} />
+        <Header
+          cart={cart}
+          handleAddToCart={handleAddToCart}
+          deleteShoppingCart={deleteShoppingCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />
         <Routes>
-          <Route path="/" element={<Home handleAddToCart={handleAddToCart} />} />
-          <Route path="/home" element={<Home handleAddToCart={handleAddToCart} />} />
+          <Route
+            path="/"
+            element={<Home handleAddToCart={handleAddToCart} />}
+          />
+          <Route
+            path="/home"
+            element={<Home handleAddToCart={handleAddToCart} />}
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/shop" element={<Shop handleAddToCart={handleAddToCart} />} />
+          <Route
+            path="/shop"
+            element={<Shop handleAddToCart={handleAddToCart} />}
+          />
           <Route
             path="dashboard"
             element={
